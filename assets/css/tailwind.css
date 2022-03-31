@@ -1,0 +1,7 @@
+@import url('https://cdn.weroad.io/common/fonts/font.css');
+
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';

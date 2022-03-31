@@ -1,11 +1,9 @@
 <template>
-<div class="h-64 w-full md:h-128 bg-blue-300">
-  <div class="container mx-auto">
-    <Menu />
-    <div class="text-center text-white">
-      <h1 class="text-3xl">Tutte le nostre destinazioni</h1>
-      <p>WeRoad ti porta alla scoperta di tutto il mondo</p>
-    </div>
+<div class="h-72 w-full cover-height bg-blue-300 bg-header-cover bg-cover bg-no-repeat">
+  <Menu />
+  <div class="pt-8 md:pt-56 px-16 text-center text-white flex-1">
+    <h1 class="text-2xl md:text-4xl font-display">Tutte le nostre destinazioni</h1>
+    <p class="mt-2">WeRoad ti porta alla scoperta di tutto il mondo</p>
   </div>
 </div>
 </template>
@@ -16,5 +14,17 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style>
+.bg-header-cover {
+  background-image: url('~assets/img/cover-mobile.svg');
+}
+
+@media only screen and (min-width: 768px) {
+  .bg-header-cover {
+    background-image: url('~assets/img/cover-desktop.svg');
+  }
+  .cover-height {
+    min-height: 70vh;
+  }
+}
 </style>

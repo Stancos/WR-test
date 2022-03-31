@@ -1,6 +1,7 @@
 export const state = () => ({
   travelList: {},
-  selectedContinent: undefined
+  selectedContinent: undefined,
+  selectedTravel: {}
 })
 
 export const getters = {
@@ -15,11 +16,14 @@ export const getters = {
 }
 
 export const mutations = {
-  SET_TRAVELLIST(state, travels) {
+  SET_TRAVEL_LIST(state, travels) {
     state.travelList = travels
   },
   SET_CONTINENT(state, continent) {
     state.selectedContinent = continent
+  },
+  SET_SELECTED_CONTINENT(state, travelInfo) {
+    state.selectedTravel = travelInfo
   }
 }
 
@@ -27,7 +31,11 @@ export const actions = {
   async getTravelList({ commit }) {
     const defaultContinent = { name: 'Europa', code: 'europe' }
     const travels = await this.$axios.$get('https://staging-api-catalog.weroad.it/travels')
-    commit('SET_TRAVELLIST', travels.data)
+    commit('SET_TRAVEL_LIST', travels.data)
     commit('SET_CONTINENT', defaultContinent)
+  },
+
+  setSelectedTravel({ commit }, travelInfo) {
+    commit('SET_SELECTED_CONTINENT', travelInfo)
   }
 }
